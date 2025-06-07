@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Seema Kumari | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;400&family=Fira+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root {
+      --primary: #4436f5;
+      --secondary: #ffb300;
+      --bg: #f7f9fc;
+      --text: #1a237e;
+      --card-bg: #fff;
+      --shadow: 0 4px 24px rgba(44,62,80,0.09);
+    }
+    body {
+      margin: 0;
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: linear-gradient(115deg, #f7f9fc 65%, #e3e7fd 100%);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 950px;
+      margin: 2rem auto;
+      background: var(--card-bg);
+      box-shadow: var(--shadow);
+      padding: 2.2rem 2.5rem 2rem 2.5rem;
+      border-radius: 24px;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .wave {
+      position: absolute;
+      top: -120px;
+      left: -120px;
+      width: 340px;
+      height: 340px;
+      background: linear-gradient(120deg, var(--primary) 40%, var(--secondary) 100%);
+      opacity: 0.12;
+      border-radius: 46% 54% 39% 61% / 60% 41% 59% 40%;
+      z-index: 0;
+      filter: blur(4px);
+      pointer-events: none;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+      position: relative;
+      z-index: 2;
+    }
+    header h1 {
+      margin: 0.2em 0 0.1em 0;
+      font-size: 2.9rem;
+      color: var(--primary);
+      letter-spacing: 2px;
+      word-spacing: 4px;
+      font-weight: 700;
+      background: linear-gradient(90deg, var(--primary) 50%, var(--secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .subtitle {
+      font-family: 'Fira Mono', monospace;
+      font-size: 1.06em;
+      color: #383d47;
+      letter-spacing: 1px;
+      margin-bottom: 0.5em;
+    }
+    .profile-pic {
+      width: 110px;
+      height: 110px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid var(--secondary);
+      margin-bottom: 1.1em;
+      background: #e1e5ff;
+      box-shadow: 0 2px 20px rgba(90,80,180,0.10);
+    }
+    .contact {
+      margin: 0.5em 0 0 0;
+      font-size: 1.13em;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.2em;
+      align-items: center;
+    }
+    .contact a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: color 0.18s;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .contact a:hover {
+      color: var(--secondary);
+      text-decoration: underline;
+    }
+    section {
+      margin-bottom: 2.1rem;
+      position: relative;
+      z-index: 2;
+    }
+    h2 {
+      color: var(--primary);
+      margin-bottom: 0.7em;
+      font-size: 1.48rem;
+      font-weight: 600;
+      border-left: 4px solid var(--secondary);
+      padding-left: 0.7em;
+      letter-spacing: 1px;
+      background: linear-gradient(90deg, var(--secondary) 15%, #fff 100%);
+      background-clip: padding-box;
+    }
+    ul, .skills-list {
+      margin: 0;
+      padding-left: 1.2em;
+      list-style: disc;
+    }
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2em 2em;
+      list-style: none;
+      padding: 0;
+      margin: 0.25em 0;
+    }
+    .skills-list li {
+      background: #ede7f6;
+      color: #592be7;
+      padding: 0.38em 1.08em;
+      border-radius: 18px;
+      font-size: 1em;
+      margin-bottom: 0.5em;
+      box-shadow: 0 2px 2px rgba(75,60,150,0.04);
+      letter-spacing: 0.4px;
+    }
+    .project, .exp-item, .activity, .cert-item {
+      margin-bottom: 1.4em;
+      background: linear-gradient(90deg, rgba(237,231,246,0.15) 60%, #fff 100%);
+      border-radius: 9px;
+      padding: 0.7em 1.1em 0.7em 1.3em;
+      box-shadow: 0 1px 6px rgba(90,80,180,0.05);
+    }
+    .project-title {
+      font-weight: bold;
+      color: var(--primary);
+      font-size: 1.07em;
+      letter-spacing: 0.2px;
+    }
+    .project-stack {
+      font-size: 0.97em;
+      color: #757575;
+      margin-bottom: 0.3em;
+      font-family: 'Fira Mono', monospace;
+      font-weight: 500;
+    }
+    .timeline {
+      font-family: 'Fira Mono', monospace;
+      font-size: 0.96em;
+      color: #616161;
+    }
+    .cert-item {
+      border-left: 4px solid var(--primary);
+      margin-left: 0.4em;
+    }
+    .cert-item b {
+      color: #3e27b2;
+    }
+    .activity {
+      background: none;
+      box-shadow: none;
+      padding: 0 0 0 1.1em;
+      border-left: 4px solid var(--secondary);
+      margin-bottom: 1em;
+    }
+    .activity b {
+      color: #d17e0e;
+    }
+    /* Section highlight effect */
+    section:hover, .project:hover, .exp-item:hover {
+      background: #f3e9fd;
+      transition: background 0.35s;
+    }
+    /* Floating icon effect */
+    .fa-brands, .fa-solid, .fa-regular {
+      font-size: 1.1em;
+      vertical-align: middle;
+    }
+    @media (max-width: 700px) {
+      .container { padding: 0.7rem 0.3rem; border-radius: 0; }
+      header h1 { font-size: 1.8rem; }
+      .profile-pic { width: 80px; height: 80px; }
+      h2 { font-size: 1.1rem; }
+    }
+    /* Simple fade-in */
+    .container, .container * { animation: fadein 1.1s cubic-bezier(.39,.575,.56,1) both; }
+    @keyframes fadein {
+      from { opacity: 0; transform: translateY(24px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="wave"></div>
+    <header>
+      <!-- Optionally add your own profile picture below -->
+      <!-- <img src="your-photo.jpg" alt="Profile Picture" class="profile-pic"> -->
+      <h1>Seema Kumari</h1>
+      <div class="subtitle">Aspiring Software Engineer &mdash; CS @ VIT Vellore</div>
+      <div class="contact">
+        <span><i class="fa-solid fa-location-dot"></i> Jaipur, Rajasthan</span>
+        <a href="mailto:seemas142003@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
+        <a href="tel:+917903470596"><i class="fa-solid fa-phone"></i> +91 7903470596</a>
+        <a href="https://www.linkedin.com/in/seema-kumari-ab948b226" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        <a href="https://github.com/seemakumari-0" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+      </div>
+    </header>
+
+    <section>
+      <h2>Objective</h2>
+      <p>
+        Detail-oriented and proactive Computer Science Engineering student from VIT with a strong foundation in web technologies, OOP, and software development practices. Experienced in building full-stack applications, working with MySQL databases, and collaborating on live software projects. Eager to apply my skills and continue learning as a Software Engineering Intern at Wittypen.
+      </p>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <div class="exp-item">
+        <b>Vellore Institute of Technology</b> — B.Tech. in Computer Science Engineering<br>
+        <span class="timeline">2021-2025</span> | <b>CGPA:</b> 8.19
+      </div>
+      <div class="exp-item">
+        <b>The Tribhuvan School, India</b> — 12th CBSE (93.66%)<br>
+        <span class="timeline">2020-2021</span>
+      </div>
+      <div class="exp-item">
+        <b>The Tribhuvan School, India</b> — 10th CBSE (90.33%)<br>
+        <span class="timeline">2018-2019</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <div><b>Languages:</b></div>
+      <ul class="skills-list">
+        <li>C/C++</li>
+        <li>Python</li>
+        <li>Java</li>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>SQL</li>
+        <li>R</li>
+      </ul>
+      <div style="margin-top:1em;"><b>Frameworks/Tools:</b></div>
+      <ul class="skills-list">
+        <li>Git</li>
+        <li>Pandas</li>
+        <li>NumPy</li>
+        <li>Scikit-learn</li>
+        <li>Matplotlib</li>
+        <li>TensorFlow</li>
+        <li>PyTorch</li>
+        <li>Canva</li>
+        <li>MS Excel</li>
+        <li>Wireshark</li>
+      </ul>
+      <div style="margin-top:1em;"><b>Databases:</b> MySQL, MongoDB</div>
+      <div style="margin-top:1em;"><b>Concepts:</b> OOP, DSA, MVC Architecture, SDLC, REST APIs, ETL (Basic)</div>
+      <div style="margin-top:1em;"><b>Learning:</b> Vue.js, Laravel</div>
+    </section>
+
+    <section>
+      <h2>Work Experience</h2>
+      <div class="exp-item">
+        <b>KPMG Advisory Services Pvt. Ltd. (India)</b> — Intern<br>
+        <span class="timeline">Gurugram, Haryana | Sept 2023 - Oct 2023</span>
+        <ul>
+          <li>Contributed to the testing and documentation of an HRMS web portal for the Bihar Government.</li>
+          <li>Created and executed manual test cases; maintained requirement traceability matrix (RTM).</li>
+          <li>Ensured proper functionality of web-based features through detailed documentation.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+      <div class="project">
+        <span class="project-title"><i class="fa-solid fa-store"></i> Grocery Management System</span>
+        <div class="project-stack">Python, MySQL, HTML/CSS/JavaScript</div>
+        <ul>
+          <li>Built a full-stack inventory management system for a virtual grocery store.</li>
+          <li>Developed the backend using Python and MySQL.</li>
+          <li>Created a clean UI and added real-time data validations.</li>
+        </ul>
+      </div>
+      <div class="project">
+        <span class="project-title"><i class="fa-solid fa-building-columns"></i> Bank Management System</span>
+        <div class="project-stack">Java, MySQL, AWT/Swing</div>
+        <ul>
+          <li>Simulated ATM functionalities including account creation, balance inquiry, withdrawal & deposits.</li>
+          <li>Used AWT/Swing for GUI and integrated it with MySQL for persistent data handling.</li>
+        </ul>
+      </div>
+      <div class="project">
+        <span class="project-title"><i class="fa-solid fa-drumstick-bite"></i> Chicken Weight Estimation via Images</span>
+        <div class="project-stack">Python, OpenCV, NumPy, Scikit-learn, ANN, Regression Models</div>
+        <ul>
+          <li>Designed a CV pipeline to estimate chicken weight from images using ML models.</li>
+          <li>Applied Linear Regression, SVR, and Neural Networks for prediction tasks.</li>
+        </ul>
+      </div>
+      <div class="project">
+        <span class="project-title"><i class="fa-solid fa-chart-line"></i> Inventory Forecasting & Par Level Recommender</span>
+        <div class="project-stack">Python, pandas, NumPy, LightGBM, SARIMA, scikit-learn</div>
+        <ul>
+          <li>Built demand forecasting models for a hotel inventory system using LightGBM & SARIMA.</li>
+          <li>Reduced stockouts and overstocking with intelligent par-level recommendations.</li>
+        </ul>
+      </div>
+      <div class="project">
+        <span class="project-title"><i class="fa-solid fa-book"></i> Books Recommendation System</span>
+        <div class="project-stack">Python, Scikit-learn, Pandas, Matplotlib</div>
+        <ul>
+          <li>Built a collaborative filtering-based book recommender with 85% accuracy.</li>
+          <li>Preprocessed and cleaned large-scale datasets to improve prediction quality.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Certifications</h2>
+      <div class="cert-item"><b>Agile Scrum in Practice:</b> Practical exposure to Agile development, Scrum roles, sprints, and QA workflows.</div>
+      <div class="cert-item"><b>CSSLP 2024: Secure Software Lifecycle Management – Infosys Springboard:</b> Secure SDLC, DevSecOps, CIS benchmarks, ISO/IEC security standards.</div>
+      <div class="cert-item"><b>Artificial Intelligence Primer Certification:</b> Basics of Machine Learning, NLP, Data Science, and RPA.</div>
+    </section>
+
+    <section>
+      <h2>Extra-Curricular Activities</h2>
+      <div class="activity">
+        <b>VIT Blockchain Community</b> — Member of Team HR (May 2022 – June 2024)<br>
+        <ul>
+          <li>Managed flagship events like Innoverse Hackathon with 300+ participants.</li>
+        </ul>
+      </div>
+      <div class="activity">
+        <b>Instrument Society Of India-VIT</b> — Member of Management Team (April 2022 – August 2023)<br>
+        <ul>
+          <li>Organized and managed tech quizzes and logistics for 100+ participants.</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
